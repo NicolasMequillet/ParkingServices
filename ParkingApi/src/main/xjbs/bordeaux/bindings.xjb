@@ -1,0 +1,62 @@
+<jaxb:bindings version="1.0"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jaxb:extensionBindingPrefixes="xjc">
+
+	//Solved underscore issue
+	<jaxb:globalBindings underscoreBinding="asCharInWord"/>
+
+	//Solved conflict on element name
+	<jaxb:bindings scd="x-schema::xlink" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<jaxb:bindings scd="/group::xlink:locatorModel/model::sequence/xlink:title">
+			<jaxb:property name="LocatorTitle"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	//Solved issue on case
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/defaultStyle.xsd" node="/xs:schema">
+		<jaxb:bindings node="xs:element[@name='featureStyle']">
+			<jaxb:factoryMethod name="FeatureStylePropertyElement"/>
+    	</jaxb:bindings>
+    	<jaxb:bindings node="xs:element[@name='geometryStyle']">
+			<jaxb:factoryMethod name="GeometryStylePropertyElement"/>
+       	</jaxb:bindings>
+    	<jaxb:bindings node="xs:element[@name='topologyStyle']">
+    		<jaxb:factoryMethod name="TopologyStylePropertyElement"/>
+    	</jaxb:bindings>
+     	<jaxb:bindings node="xs:element[@name='labelStyle']">
+      		<jaxb:factoryMethod name="LabelStylePropertyElement"/>
+       	</jaxb:bindings>
+     	<jaxb:bindings node="xs:element[@name='graphStyle']">
+      		<jaxb:factoryMethod name="GraphStylePropertyElement"/>
+       	</jaxb:bindings>
+    </jaxb:bindings>
+
+	//Solved duplicate
+	<jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/feature.xsd">
+		<jaxb:bindings node="//xs:complexType[@name='FeatureCollectionType']">
+			<jaxb:class name="OpengisFeatureCollectionType"/>
+		</jaxb:bindings>
+		<jaxb:bindings node="//xs:element[@name='FeatureCollection']">
+			<jaxb:class name="OpengisFeatureCollection"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	//Rename package
+    <jaxb:bindings schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd">
+        <jaxb:schemaBindings>
+            <jaxb:package name="fr.bordeaux_metropole.data.wfs"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../../xsds/bordeaux/cub.xsd">
+    		<jaxb:bindings node="//xs:element[@name='ST_PARK_P']">
+    			<jaxb:class name="bodParking"/>
+    		</jaxb:bindings>
+		<jaxb:bindings node="//xs:complexType[@name='ST_PARK_PType']">
+			<jaxb:class name="ParkingType"/>
+		</jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>
