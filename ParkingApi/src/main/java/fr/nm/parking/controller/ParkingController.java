@@ -63,7 +63,7 @@ public class ParkingController {
      * Then Factory will return the ParkingApi implementation defined for Bordeaux.
      *
      */
-    AreaService areaService = areaFactory.getAreaService(gpsPosition);
+    AreaService<IParking> areaService = areaFactory.getAreaService(gpsPosition);
     if(areaService != null) {
       /**
        * Call the service that retrieve the list of available parkings
