@@ -4,9 +4,6 @@
 The main goal of this api is to sent to a client (mobile application, browser, ..) a list of available parkings arround a Gps position.
 
 This API is in test version and is based on a call to a Web Service (Lacub) that returns data about parkings from the Bordeaux metropole.
-
-Url of the Lacub WS:
-<http://data.lacub.fr/wfs?key=9Y2RU3FTE8&SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=ST_PARK_P&SRSNAME=EPSG:4326>
  
 If the gsp position sent is contained in an area defined in the API
 then the apporpriate service will be used to retrieve data.
