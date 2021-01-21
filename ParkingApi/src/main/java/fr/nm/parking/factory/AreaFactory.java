@@ -56,9 +56,9 @@ public class AreaFactory {
 
   }
 
-  public AreaService getAreaService(GpsPosition gpsPosition) {
+  public AreaService<IParking> getAreaService(GpsPosition gpsPosition) {
 
-    AreaService areaService = null;
+    AreaService<IParking> areaService = null;
     Optional<Area> result = areaList
         .stream()
         .filter(area -> area.getLatitudeMin() <= gpsPosition.getLatitude()
