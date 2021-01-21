@@ -37,7 +37,7 @@ public class ParkingController {
    *
    * @param latitude Latitude of the Gps position
    * @param longitude Longitude of the Gps position
-   * @return a list of parkings containing a minimum of information about Parking
+   * @return a list of parkings containing information about Parking
    */
   @GetMapping("/list")
   public ResponseEntity<List<IParking>> getList (
@@ -58,9 +58,9 @@ public class ParkingController {
 
     /**
      * Used the area Factory component
-     * in order to get the appropriate implementation used by gps position
+     * in order to get the appropriate implementation associated at gps position
      * Ex: if the gps position is in the range on gps position defined for Bordeaux
-     * Then Factory will return the ParkingApi implementation defined for Bordeaux.
+     * So the Factory will return the ParkingApi implementation defined for Bordeaux.
      *
      */
     AreaService<IParking> areaService = areaFactory.getAreaService(gpsPosition);

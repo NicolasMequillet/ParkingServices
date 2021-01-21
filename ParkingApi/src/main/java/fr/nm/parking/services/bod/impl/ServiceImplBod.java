@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Service where is defined the logic to get elements provided by the WS
+ * Service where is defined the logic to get elements provided by the WS Lacub
  *
  * @author nm
  *
@@ -58,7 +58,7 @@ public class ServiceImplBod<M extends IParkingMapperBod, P extends ParkingBod> i
         .map(featurePropertyType -> (ParkingType) featurePropertyType.get_Feature().getValue());
 
     /**
-     * Return a Stream<Parking> and make the sort in controller ?
+     * Return a Stream<Parking> and sort in controller ?
      * return sp.filter(parkingType -> StringUtils.equals(Constantes.AVAILABLE, parkingType.getETAT()))
      * .map(parkingType ->  (P) mapper.fromSource(parkingType, gpsPosition));
      */

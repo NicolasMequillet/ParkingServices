@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Parking Bod Mapper interface
+ * Contains methods used to transform data
  *
  * @author nm
  *

@@ -8,7 +8,8 @@ import org.mapstruct.*;
 import java.math.BigInteger;
 
 /**
- * Mapper allowing to transform an input ST_PARK_PType into a ParkingBod
+ * Mapper allowing to transform an input ST_PARK_PType coming from Lacub WS
+ * into a ParkingBod object used in this API
  *
  * @author nm
  *

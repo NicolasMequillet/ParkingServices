@@ -4,6 +4,9 @@
 The main goal of this api is to sent to a client (mobile application, browser, ..) a list of available parkings arround a Gps position.
 
 This API is in test version and is based on a call to a Web Service (Lacub) that returns data about parkings from the Bordeaux metropole.
+
+Url of the Lacub WS:
+<http://data.lacub.fr/wfs?key=9Y2RU3FTE8&SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=ST_PARK_P&SRSNAME=EPSG:4326>
  
 If the gsp position sent is contained in an area defined in the API
 then the apporpriate service will be used to retrieve data.
@@ -20,7 +23,9 @@ For more relevance, the list of Parkings returned by the API are sorted:
 
 So in the same Km, the API will first display the car parks with the most available parking spaces.
 
-Only the parking with the status Open will be displayed. 
+Items with the tag **\<bm:ETAT\>FERME\</bm:ETAT\>** will be filtered.
+
+Only parkings with the status Open will be displayed. 
 
 ## Download source
 * git clone https://github.com/NicolasMequillet/ParkingServices.git
@@ -51,7 +56,7 @@ Ex: <http://localhost:8080/nm/parking/v1/list?latitude=44.837789&longitude=-0.57
 
 will return a list of Parking elements near to the center of Bordeaux.
 
-##Project structure
+## Project structure
 This API is developed in JAVA and is based on the Spring Boot framework.
 Only one end point is exposed.
 The API WebFlux allows to call the Web service Lacub.
@@ -63,6 +68,7 @@ The GeographicLib API allows to calcul distance between two GPS positions
 The distance calculation between 2 gps positions is linear. 
 
 In the context of a professional API we could perhaps do a calculation on the distance taking into account the traffic and the direction of traffic.
+
 The authentication part has not been implemented in this API.
 
 
