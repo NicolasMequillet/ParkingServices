@@ -79,14 +79,8 @@ public class GeoUtilsTest {
     log.info("Test with bad latitude");
     Assert.assertEquals(Boolean.FALSE, GeoUtils.isCorrectPositionGps(-200d, -0.5d));
 
-    /**
-     *  <gml:Envelope srsName="EPSG:4326">
-     *  <gml:lowerCorner>44.774274 -0.701561</gml:lowerCorner>
-     *  <gml:upperCorner>44.944685 -0.510386</gml:upperCorner>
-     *  </gml:Envelope>
-     */
-    log.info("Test EPSG:4326");
     Assert.assertEquals(Boolean.TRUE, GeoUtils.isCorrectPositionGps(44.774274d, -0.701561d));
+
     Assert.assertEquals(Boolean.TRUE, GeoUtils.isCorrectPositionGps(44.944685d, -0.510386));
   }
 

@@ -1,10 +1,10 @@
-package fr.nm.parking.mapper;
+package fr.nm.parking.mapper.bod;
 
 import fr.bordeaux_metropole.data.wfs.DirectPositionType;
 import fr.bordeaux_metropole.data.wfs.ParkingType;
 import fr.bordeaux_metropole.data.wfs.PointType;
-import fr.nm.parking.bean.Parking;
 import fr.nm.parking.bean.GpsPosition;
+import fr.nm.parking.bean.bod.ParkingBod;
 import fr.nm.parking.utils.GeoUtils;
 import org.mapstruct.Context;
 import org.mapstruct.Named;
@@ -14,12 +14,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Parking Mapper
+ * Parking Bod Mapper interface
  *
  * @author nm
  *
  */
-public interface IParkingMapper<P extends Parking> {
+public interface IParkingMapperBod<P extends ParkingBod> {
 
   P fromSource(ParkingType parkingType, @Context GpsPosition gpsPosition);
 

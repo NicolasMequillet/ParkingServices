@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 @Slf4j
 public class GeoUtils {
 
-  private static Geodesic GEOD = Geodesic.WGS84;// This matches EPSG4326, which is the coordinate system used by Geolake
+  private static Geodesic geodesic = Geodesic.WGS84;// This matches EPSG4326, which is the coordinate system used by Geolake
 
   /**
    * Private constructor
@@ -43,13 +43,13 @@ public class GeoUtils {
   public static boolean checkLatitue(Double latitude) {
     return latitude != null ?
         Pattern.matches(Constantes.LATITUDE_PATTERN, latitude.toString())
-        : false;
+        : Boolean.FALSE;
   }
 
   public static boolean checkLongitude(Double longitude) {
     return longitude != null ?
         Pattern.matches(Constantes.LONGITUDE_PATTERN, longitude.toString())
-        : false;
+        : Boolean.FALSE;
   }
 
   /**
@@ -61,7 +61,7 @@ public class GeoUtils {
    * @return Distance between the first and the second point in meters
    */
   public static double getDistanceInMeters(double lat1, double lon1, double lat2, double lon2) {
-    GeodesicLine line = GEOD.InverseLine(lat1, lon1, lat2, lon2, GeodesicMask.DISTANCE_IN | GeodesicMask.LATITUDE | GeodesicMask.LONGITUDE);
+    GeodesicLine line = geodesic.InverseLine(lat1, lon1, lat2, lon2, GeodesicMask.DISTANCE_IN | GeodesicMask.LATITUDE | GeodesicMask.LONGITUDE);
     return Math.round(line.Distance());
   }
 

@@ -1,21 +1,20 @@
-package fr.nm.parking.mapper;
+package fr.nm.parking.mapper.bod;
 
 import fr.bordeaux_metropole.data.wfs.ParkingType;
-import fr.nm.parking.bean.ParkingAll;
 import fr.nm.parking.bean.GpsPosition;
+import fr.nm.parking.bean.bod.ParkingBod;
 import org.mapstruct.*;
 
 import java.math.BigInteger;
 
 /**
- * Mapper allowing to transform an input ST_PARK_PType into a ParkAll
- * ParkAll contains almost all the elements defined in ST_PARK_PType
+ * Mapper allowing to transform an input ST_PARK_PType into a ParkingBod
  *
  * @author nm
  *
  */
 @Mapper(componentModel = "spring")
-public interface ParkingAllMapper extends IParkingMapper<ParkingAll> {
+public interface ParkingMapperBod extends IParkingMapperBod<ParkingBod> {
 
   @Mappings({
       @Mapping(target = "nom", source = "parkingType.NOM")
@@ -64,7 +63,7 @@ public interface ParkingAllMapper extends IParkingMapper<ParkingAll> {
       , @Mapping(target = "tarifType", source = "parkingType.TA_TYPE")
       , @Mapping(target = "tarifHandi", source = "parkingType.TA_HANDI")
   })
-  ParkingAll fromSource(ParkingType parkingType, @Context GpsPosition gpsPosition);
+  ParkingBod fromSource(ParkingType parkingType, @Context GpsPosition gpsPosition);
 
   @Named("computeBigInteger")
   default Integer computeBigInteger (BigInteger value) {

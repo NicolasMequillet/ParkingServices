@@ -1,12 +1,10 @@
 package fr.nm.parking.services;
 
-import fr.nm.parking.bean.Parking;
 import fr.nm.parking.bean.GpsPosition;
 
 import java.util.List;
 
-public interface IParkingApi {
+public interface IParkingApi<B> {
 
-  List<Parking> getParkings(GpsPosition position);
-
+  List<B> getParkings(GpsPosition position);
 }

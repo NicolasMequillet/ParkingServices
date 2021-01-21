@@ -24,6 +24,8 @@ logging:
 bordeaux:
   cub:
     url: http://data.lacub.fr/wfs?key=9Y2RU3FTE8&SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=ST_PARK_P&SRSNAME=EPSG:4326
+marseille:
+  url: http://google.fr
 ---
 # config for profiles on production
 spring:
@@ -40,3 +42,5 @@ logging:
 bordeaux:
   cub:
     url: http://data.lacub.fr/wfs?key=9Y2RU3FTE8&SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=ST_PARK_P&SRSNAME=EPSG:4326
+marseille:
+  url: http://google.fr

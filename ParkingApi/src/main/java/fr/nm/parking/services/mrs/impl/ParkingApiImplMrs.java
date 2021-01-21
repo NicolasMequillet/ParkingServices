@@ -1,9 +1,9 @@
-package fr.nm.parking.services.impl;
+package fr.nm.parking.services.mrs.impl;
 
-import fr.nm.parking.bean.Parking;
 import fr.nm.parking.bean.GpsPosition;
-import fr.nm.parking.mapper.ParkingMapper;
-import fr.nm.parking.services.IParkingApi;
+import fr.nm.parking.bean.mrs.ParkingMrs;
+import fr.nm.parking.mapper.mrs.ParkingMapperMrs;
+import fr.nm.parking.services.mrs.IParkingApiMrs;
 import fr.nm.parking.utils.WebClientUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,14 +22,14 @@ import java.util.List;
 @Service
 @Slf4j
 @EnableCaching
-public class ParkingApiImpl extends ServiceImpl<ParkingMapper, Parking> implements IParkingApi {
+public class ParkingApiImplMrs extends ServiceImplMrs<ParkingMapperMrs, ParkingMrs> implements IParkingApiMrs {
 
-  @Value("${bordeaux.cub.url}")
+  @Value("${marseille.url}")
   String baseUrl ;
 
   @Override
-  public List<Parking> getParkings(GpsPosition position) {
-    WebClient webClient = WebClientUtil.getWebClient(baseUrl);
+  public List<ParkingMrs> getParkings(GpsPosition position) {
+    WebClient webClient = WebClientUtil.getWebClient(baseUrl, null);
     return this.getList(webClient, position);
   }
 }

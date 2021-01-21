@@ -1,11 +1,11 @@
-package fr.nm.parking.services.impl;
+package fr.nm.parking.services.bod.impl;
 
 import fr.bordeaux_metropole.data.wfs.OpengisFeatureCollectionType;
 import fr.bordeaux_metropole.data.wfs.ParkingType;
-import fr.nm.parking.bean.Parking;
 import fr.nm.parking.bean.GpsPosition;
-import fr.nm.parking.mapper.IParkingMapper;
-import fr.nm.parking.services.IService;
+import fr.nm.parking.bean.bod.ParkingBod;
+import fr.nm.parking.mapper.bod.IParkingMapperBod;
+import fr.nm.parking.services.bod.IServiceBod;
 import fr.nm.parking.utils.Constantes;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +25,7 @@ import java.util.stream.Stream;
  *
  */
 @Slf4j
-public class ServiceImpl<M extends IParkingMapper, P extends Parking> implements IService<P> {
+public class ServiceImplBod<M extends IParkingMapperBod, P extends ParkingBod> implements IServiceBod<P> {
 
   @Autowired
   private M mapper;
@@ -57,9 +57,11 @@ public class ServiceImpl<M extends IParkingMapper, P extends Parking> implements
             && featurePropertyType.get_Feature().getValue() instanceof ParkingType)
         .map(featurePropertyType -> (ParkingType) featurePropertyType.get_Feature().getValue());
 
-    //Return a Stream<Parking> and make the sort in controller ?
-    //return sp.filter(parkingType -> StringUtils.equals(Constantes.AVAILABLE, parkingType.getETAT()))
-    //.map(parkingType ->  (P) mapper.fromSource(parkingType, gpsPosition));
+    /**
+     * Return a Stream<Parking> and make the sort in controller ?
+     * return sp.filter(parkingType -> StringUtils.equals(Constantes.AVAILABLE, parkingType.getETAT()))
+     * .map(parkingType ->  (P) mapper.fromSource(parkingType, gpsPosition));
+     */
 
     /**
      *

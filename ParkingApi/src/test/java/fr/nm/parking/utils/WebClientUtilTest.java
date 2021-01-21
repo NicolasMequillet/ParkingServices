@@ -19,6 +19,6 @@ public class WebClientUtilTest {
   public void webClientTest() {
     log.info("=== Test webClient utils ===");
 
-    assertNotNull(WebClientUtil.getWebClient(baseUrl));
+    assertNotNull(WebClientUtil.getWebClient(baseUrl, null));
   }
 }
